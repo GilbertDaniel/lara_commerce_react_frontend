@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Router, Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { HomePage } from './../pages/HomePage';
 
 export class AppRoute extends Component {
