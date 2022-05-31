@@ -3,6 +3,9 @@ import HomeSlider from './HomeSlider'
 import { Container, Row, Col } from 'react-bootstrap'
 
 class HomeTopMobile extends Component {
+    componentDidMount(){
+        window.scroll(0,0)
+   }
     render() {
         return (
             <Fragment>
