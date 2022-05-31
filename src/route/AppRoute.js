@@ -10,6 +10,7 @@ import ProductDetailsPage from './../pages/ProductDetailsPage';
 import NotificationPage from './../pages/NotificationPage';
 import FavouritePage from './../pages/FavouritePage';
 import CartPage from '../pages/CartPage';
+import AboutPage from '../pages/AboutPage';
 
 export class AppRoute extends Component {
   render() {
@@ -20,6 +21,7 @@ export class AppRoute extends Component {
           <Route path='/login' element={<UserLoginPage />} />
           <Route exact path="/contact" element={<ContactPage />} />
           <Route exact path="/purchase" element={<PurchasePage/>} />
+          <Route exact path="/about" element={<AboutPage/>} />
           <Route exact path="/privacy" element={<PrivacyPage/>} />
           <Route exact path="/refund" element={<RefundPage/>} />
           <Route exact path="/productdetails" element={<ProductDetailsPage/>} />
