@@ -3,6 +3,8 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import validation from '../../validation/validate';
 import axios from 'axios'
 import AppURL from '../../api/AppURL';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export class Contact extends Component {
     constructor() {
         super();
@@ -40,16 +42,20 @@ export class Contact extends Component {
         let contactForm = document.getElementById('contactForm');
 
         if (message.length == 0) {
-            alert("Please write your message");
+            //alert("Please write your message");
+            toast.error("Please write your message");
         }
         else if (name.length == 0) {
-            alert("Please write down your name");
+            //alert("Please write down your name");
+            toast.error("Please write down your name");
         }
         else if (email.length == 0) {
-            alert("Please write down your Email");
+            //alert("Please write down your Email");
+            toast.error("Please write down your Email");
         }
         else if (!(validation.NameRegx).test(name)) {
-            alert("Invaid Name");
+            //alert("Invaid Name");
+            toast.error("Invaid Name");
         }
         else {
 
@@ -60,18 +66,21 @@ export class Contact extends Component {
 
             axios.post(AppURL.PostContact, MyFormData).then(function (response) {
                 if (response.status == 200 && response.data == 1) {
-                    alert("Message Send Successfully");
-                    sendBtn.innerHTML="Send";
+                    //alert("Message Send Successfully");
+                    toast.success("Message Send Successfully");
+                    sendBtn.innerHTML = "Send";
                     contactForm.reset();
                 }
                 else {
-                    alert("error");
-                    sendBtn.innerHTML="Send";
+                    //alert("error");
+                    toast.error("error");
+                    sendBtn.innerHTML = "Send";
                 }
             })
                 .catch(function (error) {
-                    alert(error);
-                    sendBtn.innerHTML="Send";
+                    //alert(error);
+                    toast.error("error");
+                    sendBtn.innerHTML = "Send";
                 });
         }
 
@@ -121,6 +130,7 @@ export class Contact extends Component {
                         </Col>
                     </Row>
                 </Container>
+                <ToastContainer />
             </Fragment>
         )
     }
