@@ -9,8 +9,19 @@ import NewArrival from '../components/home/NewArrival';
 import { FeaturedProducts } from './../components/home/FeaturedProducts';
 import { FooterMobile } from './../components/common/FooterMobile';
 import Collection from './../components/home/Collection';
-
+import axios from 'axios';
+import AppURL from './../api/AppURL';
 export class HomePage extends Component {
+
+  componentDidMount() {
+    window.scroll(0, 0);
+    this.GetVisitorDetails();
+  }
+
+
+  GetVisitorDetails = () => {
+    axios.get(AppURL.VisitorDetails).then().catch()
+  }
   render() {
     return (
       <Fragment>
@@ -25,14 +36,14 @@ export class HomePage extends Component {
         </div>
         <NewArrival />
         <FeaturedProducts />
-        <Collection/>
+        <Collection />
         <Categories />
         <div className="Desktop">
           <FooterDestop />
         </div>
 
         <div className="Mobile">
-          <FooterMobile/>
+          <FooterMobile />
         </div>
       </Fragment>
     )
