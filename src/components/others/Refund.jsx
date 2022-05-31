@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import AppURL from '../../api/AppURL';
 import axios from 'axios';
+import parse from 'html-react-parser';
 
 class Refund extends Component {
     constructor() {
@@ -31,7 +32,7 @@ class Refund extends Component {
                         <Col className="shadow-sm bg-white mt-2" md={12} lg={12} sm={12} xs={12}>
                             <h4 className="section-title-login">Refund Page </h4>
                             <p className="section-title-contact">
-                            {this.state.refund}
+                            {parse(this.state.refund)}
                             </p>
 
 

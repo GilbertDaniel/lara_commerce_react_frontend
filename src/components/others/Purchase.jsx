@@ -4,6 +4,7 @@ import AppURL from '../../api/AppURL';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import parse from 'html-react-parser';
 
 class Purchase extends Component {
     constructor() {
@@ -61,7 +62,7 @@ class Purchase extends Component {
                         <Col className="shadow-sm bg-white mt-2" md={12} lg={12} sm={12} xs={12}>
                             <h4 className="section-title-login">Purchase Page </h4>
                             <p className="section-title-contact">
-                                {this.state.purchase_guide}
+                                {parse(this.state.purchase_guide)}
                             </p>
                         </Col>
                     </Row>
