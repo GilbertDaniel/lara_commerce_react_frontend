@@ -17,7 +17,7 @@ class Purchase extends Component {
     componentDidMount() {
         axios.get(AppURL.AllSiteInfo).then(response => {
             let StatusCode = response.status;
-            if (StatusCode == 200) {
+            if (StatusCode === 200) {
                 let JsonData = (response.data)[0]['purchase_guide'];
                 this.setState({ purchase_guide: JsonData });
             }

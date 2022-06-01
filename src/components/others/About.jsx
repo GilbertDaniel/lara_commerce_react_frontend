@@ -15,7 +15,7 @@ class About extends Component {
     componentDidMount() {
         axios.get(AppURL.AllSiteInfo).then(response => {
             let StatusCode = response.status;
-            if (StatusCode == 200) {
+            if (StatusCode === 200) {
                 let JsonData = (response.data)[0]['about'];
                 this.setState({ about: JsonData });
             }
