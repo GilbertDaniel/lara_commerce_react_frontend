@@ -16,6 +16,7 @@ import ForgetPasswordPage from '../pages/ForgetPasswordPage';
 import ResetPasswordPage from '../pages/ResetPasswordPage';
 import ProfilePage from '../pages/ProfilePage';
 import ProductCategoryPage from './../pages/ProductCategoryPage';
+import SubCategoryPage from '../pages/SubCategoryPage';
 
 export class AppRoute extends Component {
   render() {
@@ -41,6 +42,7 @@ export class AppRoute extends Component {
 
           {/* Product Route */}
           <Route path="/products/category/:category" element={<ProductCategoryPage/>} />
+          <Route exact path="/products/category/sub/:category/:subcategory" element={<SubCategoryPage/>} />
 
           
         </Routes>
