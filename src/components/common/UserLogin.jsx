@@ -19,7 +19,7 @@ class UserLogin extends Component {
                                         <Button className="btn btn-block m-2 site-btn-login"> Login </Button>
                                         <br></br> <br></br>
                                         <hr />
-                                        <p> <b> Forget My Password? </b><Link to="/"><b> Froget Password </b> </Link> </p>
+                                        <p> <b> Forget My Password? </b><Link to="/forget"><b> Froget Password </b> </Link> </p>
                                         <p> <b> Don't Have An Account ? </b><Link to="/register"><b> Register </b> </Link> </p>
                                         <Outlet/>
                                     </Form>

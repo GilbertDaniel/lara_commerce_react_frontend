@@ -12,6 +12,8 @@ import FavouritePage from './../pages/FavouritePage';
 import CartPage from '../pages/CartPage';
 import AboutPage from '../pages/AboutPage';
 import RegisterPage from '../pages/RegisterPage';
+import ForgetPasswordPage from '../pages/ForgetPasswordPage';
+import ResetPasswordPage from '../pages/ResetPasswordPage';
 
 export class AppRoute extends Component {
   render() {
@@ -21,6 +23,8 @@ export class AppRoute extends Component {
           <Route path='/' element={<HomePage />} />
           <Route exact path="/login" element={<UserLoginPage/>} />
           <Route exact path="/register" element={<RegisterPage/> } />
+          <Route exact path="/forget" element={<ForgetPasswordPage/> } />
+          <Route exact path="/reset/:id" element={<ResetPasswordPage/> } />
           <Route exact path="/contact" element={<ContactPage />} />
           <Route exact path="/purchase" element={<PurchasePage/>} />
           <Route exact path="/about" element={<AboutPage/>} />
