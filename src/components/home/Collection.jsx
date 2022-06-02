@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { Container, Row, Col, Card } from 'react-bootstrap'
 import AppURL from '../../api/AppURL';
 import axios from 'axios'
+import CollectionLoading from '../placeholder/CollectionLoading';
 import { Link } from 'react-router-dom'
 
 class Collection extends Component {
@@ -17,7 +18,7 @@ class Collection extends Component {
 
 
   componentDidMount() {
-    axios.get(AppURL.ProductListByRemark("collection")).then(response => {
+    axios.get(AppURL.ProductListByRemark("COLLECTION")).then(response => {
 
       this.setState({
         ProductData: response.data, isLoading: "d-none",
@@ -36,7 +37,7 @@ class Collection extends Component {
     const MyView = CollectionList.map((CollectionList, i) => {
 
       if (CollectionList.special_price === "") {
-        return <Col className="p-0" xl={3} lg={3} md={3} sm={6} xs={6}>
+        return <Col className="p-0" key={i.toString()} xl={3} lg={3} md={3} sm={6} xs={6}>
           <Link className="text-link" to={"/products/detail/" + CollectionList.id} >
             <Card className="image-box card w-100">
               <img className="center w-75" src={CollectionList.image} />
@@ -52,7 +53,7 @@ class Collection extends Component {
       }
       else {
 
-        return <Col className="p-0" xl={3} lg={3} md={3} sm={6} xs={6}>
+        return <Col className="p-0" key={i.toString()} xl={3} lg={3} md={3} sm={6} xs={6}>
           <Link className="text-link" to={"/products/detail/" + CollectionList.id} >
             <Card className="image-box card w-100">
               <img className="center w-75" src={CollectionList.image} />
@@ -74,6 +75,7 @@ class Collection extends Component {
 
     return (
       <Fragment>
+        <CollectionLoading isLoading={this.state.isLoading} />
 
         <div className={this.state.mainDiv}>
 

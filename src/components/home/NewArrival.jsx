@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import AppURL from '../../api/AppURL';
 import axios from 'axios'
+import NewArrivalLoading from '../placeholder/NewArrivalLoading';
 import { Link } from 'react-router-dom'
 
 class NewArrival extends Component {
@@ -28,7 +29,7 @@ class NewArrival extends Component {
 
 
   componentDidMount() {
-    axios.get(AppURL.ProductListByRemark("new")).then(response => {
+    axios.get(AppURL.ProductListByRemark("NEW")).then(response => {
 
       this.setState({
         ProductData: response.data, isLoading: "d-none",
@@ -122,6 +123,8 @@ class NewArrival extends Component {
 
     return (
       <Fragment>
+
+        <NewArrivalLoading isLoading={this.state.isLoading} />
 
         <div className={this.state.mainDiv}>
           <Container className="text-center" fluid={true}>

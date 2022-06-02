@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react'
-import { Col, Container, Row, Card } from 'react-bootstrap'
+import { Container, Row, Col, Card } from 'react-bootstrap'
 import AppURL from '../../api/AppURL';
 import axios from 'axios'
 import { Link } from 'react-router-dom';
+import CategoryLoading from '../placeholder/CategoryLoading';
 
 class Categories extends Component {
   constructor() {
@@ -31,7 +32,7 @@ class Categories extends Component {
 
     const CatList = this.state.MenuData;
     const MyView = CatList.map((CatList, i) => {
-      return <Col key={i.toString()} className="p-0" xl={2} lg={2} md={2} sm={6} xs={6}>
+      return <Col key={i.toString()} className="p-0" key={i.toString()} xl={2} lg={2} md={2} sm={6} xs={6}>
         <Link className="text-link" to={"/products/category/" + CatList.category_name}>
           <Card className="h-100 w-100 text-center">
             <Card.Body>
@@ -47,7 +48,7 @@ class Categories extends Component {
 
     return (
       <Fragment>
-
+        <CategoryLoading isLoading={this.state.isLoading} />
 
         <div className={this.state.mainDiv}>
           <Container className="text-center" fluid={true}>
