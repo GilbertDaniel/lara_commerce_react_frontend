@@ -15,6 +15,7 @@ import RegisterPage from '../pages/RegisterPage';
 import ForgetPasswordPage from '../pages/ForgetPasswordPage';
 import ResetPasswordPage from '../pages/ResetPasswordPage';
 import ProfilePage from '../pages/ProfilePage';
+import ProductCategoryPage from './../pages/ProductCategoryPage';
 
 export class AppRoute extends Component {
   render() {
@@ -36,6 +37,12 @@ export class AppRoute extends Component {
           <Route exact path="/notification" element={<NotificationPage/>} />
           <Route exact path="/favourite" element={<FavouritePage/>} />
           <Route exact path="/cart" element={<CartPage/>} />
+
+
+          {/* Product Route */}
+          <Route path="/products/category/:category" element={<ProductCategoryPage/>} />
+
+          
         </Routes>
       </Fragment>
     )
