@@ -1,0 +1,39 @@
+import React, { Component, Fragment } from 'react'
+import FooterDestop from '../components/common/FooterDestop'
+import FooterMobile from '../components/common/FooterMobile'
+import NavMenuDesktop from '../components/common/NavMenuDesktop'
+import NavMenuMobile from '../components/common/NavMenuMobile'
+import Register from '../components/common/Register'
+
+
+class RegisterPage extends Component {
+    componentDidMount(){
+        window.scroll(0,0)
+   }
+    render() {
+        return (
+            <Fragment>
+                <div className="Desktop">
+                    <NavMenuDesktop />
+                </div>
+
+                <div className="Mobile">
+                    <NavMenuMobile />
+                </div>
+
+                <Register />
+
+                <div className="Desktop">
+                    <FooterDestop />
+                </div>
+
+                <div className="Mobile">
+                    <FooterMobile />
+                </div>
+
+            </Fragment>
+        )
+    }
+}
+
+export default RegisterPage

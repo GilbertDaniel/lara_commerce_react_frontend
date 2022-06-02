@@ -11,6 +11,7 @@ import NotificationPage from './../pages/NotificationPage';
 import FavouritePage from './../pages/FavouritePage';
 import CartPage from '../pages/CartPage';
 import AboutPage from '../pages/AboutPage';
+import RegisterPage from '../pages/RegisterPage';
 
 export class AppRoute extends Component {
   render() {
@@ -18,7 +19,8 @@ export class AppRoute extends Component {
       <Fragment>
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/login' element={<UserLoginPage />} />
+          <Route exact path="/login" element={<UserLoginPage/>} />
+          <Route exact path="/register" element={<RegisterPage/> } />
           <Route exact path="/contact" element={<ContactPage />} />
           <Route exact path="/purchase" element={<PurchasePage/>} />
           <Route exact path="/about" element={<AboutPage/>} />

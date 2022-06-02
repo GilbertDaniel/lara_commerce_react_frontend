@@ -1,26 +1,28 @@
 import React, { Component, Fragment } from 'react'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
-import { Outlet, Link } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import Login from '../../assets/images/login.png'
-class UserLogin extends Component {
+
+class Register extends Component {
     render() {
         return (
             <Fragment>
                 <Container>
                     <Row className="p-2">
                         <Col className="shadow-sm bg-white mt-2" md={12} lg={12} sm={12} xs={12}>
+
                             <Row className="text-center">
                                 <Col className="d-flex justify-content-center" md={6} lg={6} sm={12} xs={12}>
                                     <Form className="onboardForm">
-                                        <h4 className="section-title-login"> USER SING IN </h4>
-                                        <h6 className="section-sub-title">Please Enter Your Mobile Number</h6>
+                                        <h4 className="section-title-login"> USER REGISTER </h4>
+                                        <input className="form-control m-2" type="text" placeholder="Enter Your Name" />
                                         <input className="form-control m-2" type="email" placeholder="Enter Your Email" />
                                         <input className="form-control m-2" type="password" placeholder="Enter Your Password" />
-                                        <Button className="btn btn-block m-2 site-btn-login"> Login </Button>
+                                        <input className="form-control m-2" type="password" placeholder="Confirm Your Password" />
+                                        <Button className="btn btn-block m-2 site-btn-login"> Sing Up </Button>
                                         <br></br> <br></br>
                                         <hr />
-                                        <p> <b> Forget My Password? </b><Link to="/"><b> Froget Password </b> </Link> </p>
-                                        <p> <b> Don't Have An Account ? </b><Link to="/register"><b> Register </b> </Link> </p>
+                                        <p> <b> Already Have An Account ? </b><Link to="/login"><b> Login </b> </Link> </p>
                                         <Outlet/>
                                     </Form>
                                 </Col>
@@ -28,6 +30,12 @@ class UserLogin extends Component {
                                     <img className="onboardBanner" src={Login} />
                                 </Col>
                             </Row>
+
+
+
+
+
+
                         </Col>
                     </Row>
                 </Container>
@@ -36,4 +44,4 @@ class UserLogin extends Component {
     }
 }
 
-export default UserLogin
+export default Register
