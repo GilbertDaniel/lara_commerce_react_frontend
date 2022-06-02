@@ -42,7 +42,7 @@ class Collection extends Component {
             <Card className="image-box card w-100">
               <img className="center w-75" src={CollectionList.image} />
               <Card.Body>
-                <p className="product-name-on-card">{CollectionList.title}</p>
+                <p className="product-name-on-card">{CollectionList.name}</p>
                 <p className="product-price-on-card">Price : ${CollectionList.price}</p>
 
               </Card.Body>
@@ -58,7 +58,7 @@ class Collection extends Component {
             <Card className="image-box card w-100">
               <img className="center w-75" src={CollectionList.image} />
               <Card.Body>
-                <p className="product-name-on-card">{CollectionList.title}</p>
+                <p className="product-name-on-card">{CollectionList.name}</p>
                 <p className="product-price-on-card">Price : <strike className="text-secondary">${CollectionList.price}</strike> ${CollectionList.special_price}</p>
 
               </Card.Body>

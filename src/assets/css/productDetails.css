@@ -15,4 +15,25 @@
     font-size: 18px;
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: 400;
-} 
+}
+
+.bigimage{
+    height: 400px;
+    margin-left: 150px;
+}
+.smallimage{
+    width:70px;
+    height: 150px;
+}
+.product-sm-img{
+
+}
+.product-sm-img:hover{
+   cursor: pointer;
+}
+.detailimage{    
+   max-width: 60%;
+   height: 499px;
+   margin: 0px;
+   margin-left: 142px;    
+}

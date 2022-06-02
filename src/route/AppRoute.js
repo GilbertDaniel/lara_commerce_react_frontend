@@ -43,6 +43,7 @@ export class AppRoute extends Component {
           {/* Product Route */}
           <Route path="/products/category/:category" element={<ProductCategoryPage/>} />
           <Route exact path="/products/category/sub/:category/:subcategory" element={<SubCategoryPage/>} />
+          <Route exact path="/products/detail/:code" element={<ProductDetailsPage/>} />
 
           
         </Routes>

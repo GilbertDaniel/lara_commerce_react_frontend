@@ -13,6 +13,9 @@
 @import "onboard.css";
 @import "common.css";
 @import "cartList.css";
+@import "productDetails";
+@import "bigSlider.css";
+@import "megaMenuAll.css";
 
 body{
     background-color:#ffffff;

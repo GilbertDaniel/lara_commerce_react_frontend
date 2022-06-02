@@ -36,8 +36,8 @@ export class HomePage extends Component {
         </div>
         <NewArrival />
         <FeaturedProducts />
-        <Collection />
         <Categories />
+        <Collection />
         <div className="Desktop">
           <FooterDestop />
         </div>
