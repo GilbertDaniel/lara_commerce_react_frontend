@@ -1,18 +1,36 @@
 import React, { Component, Fragment } from 'react'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import ReactDOM from 'react-dom'
+import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
+import InnerImageZoom from 'react-inner-image-zoom';
+
+import SuggestedProduct from './SuggestedProduct'
+import ReviewList from './ReviewList'
 class ProductDetails extends Component {
     constructor() {
         super();
+        this.state = {
+            previewImg: "0",
+            isSize: null,
+            isColor: null,
+            color: "",
+            size: "",
+            quantity: "",
+            productCode: null,
+            addToCart: "Add To Cart",
+            PageRefreshStatus: false,
+            addToFav: "Favourite",
+            OrderNow: "Order Now",
+            PageRedirectStauts: false
+        }
     }
 
-    imgOnClick(event) {
+    imgOnClick = (event) => {
 
         let imgSrc = event.target.getAttribute('src');
-        let previewImg = document.getElementById('previewImg');
-        ReactDOM.findDOMNode(previewImg).setAttribute('src', imgSrc)
+        this.setState({previewImg:imgSrc})
     }
-    PriceOption(price, special_price){
+    PriceOption(price, special_price) {
         if (special_price === "") {
             return (
                 <p className="product-price-on-card"> Price : {price}$ </p>
@@ -33,6 +51,13 @@ class ProductDetails extends Component {
         let size = ProductAllData[0]['size']
         let price = ProductAllData[0]['price']
         let special_price = ProductAllData[0]['special_price']
+        let image = ProductAllData[0]['image']
+        let subcategory = ProductAllData[0]['subcategory']
+        let product_id = ProductAllData[0]['id']
+
+        if(this.state.previewImg === "0"){
+            this.setState({previewImg:image})
+       }
 
         var ColorDiv = "d-none"
         if (color !== "") {
@@ -59,7 +84,7 @@ class ProductDetails extends Component {
             SizeDiv = "d-none"
         }
 
-       
+
         return (
             <Fragment>
                 <Container fluid={true} className="BetweenTwoSection">
@@ -68,7 +93,11 @@ class ProductDetails extends Component {
                             <Row>
                                 <Col className="p-3" md={6} lg={6} sm={12} xs={12}>
 
-                                    <img id="previewImg" className="detailimage" src={ProductAllData[0]['image']} />
+                                    {/* <img id="previewImg" className="detailimage" src={ProductAllData[0]['image']} /> */}
+                                    <div className="bigImage">
+                                        {/* <InnerImageZoom zoomScale={1.8} zoomType={"hover"} src={ProductAllData[0]['image']} zoomSrc={ProductAllData[0]['image']} /> */}
+                                        <InnerImageZoom className="detailimage" zoomScale={1.8} zoomType={"hover"} src={this.state.previewImg} zoomSrc={this.state.previewImg} />
+                                    </div>
                                     <Container className="my-3">
                                         <Row>
                                             <Col className="p-0 m-0" md={3} lg={3} sm={3} xs={3}>
@@ -95,7 +124,7 @@ class ProductDetails extends Component {
                                         <div className="Product-price-card d-inline ">50% Discount</div>
                                         <div className="Product-price-card d-inline ">New Price ${ProductAllData[0]['special_price']}</div>
                                     </div> */}
-                                    {this.PriceOption(price,special_price)}
+                                    {this.PriceOption(price, special_price)}
                                     <h6 className="mt-2">Category : <b>{ProductAllData[0]['category']}</b></h6>
                                     <h6 className="mt-2">Brand : <b>{ProductAllData[0]['brand']}</b></h6>
                                     <h6 className="mt-2">Product Code : <b>{ProductAllData[0]['product_code']}</b></h6>
@@ -149,15 +178,7 @@ class ProductDetails extends Component {
                                 </Col>
 
                                 <Col className="" md={6} lg={6} sm={12} xs={12}>
-                                    <h6 className="mt-2">REVIEWS</h6>
-                                    <p className=" p-0 m-0"><span className="Review-Title">Kazi Ariyan</span> <span className="text-success"><i className="fa fa-star"></i> <i className="fa fa-star"></i> <i className="fa fa-star"></i> <i className="fa fa-star"></i> </span> </p>
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-
-                                    <p className=" p-0 m-0"><span className="Review-Title">Kazi Ariyan</span> <span className="text-success"><i className="fa fa-star"></i> <i className="fa fa-star"></i> <i className="fa fa-star"></i> <i className="fa fa-star"></i> </span> </p>
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-
-                                    <p className=" p-0 m-0"><span className="Review-Title">Kazi Ariyan</span> <span className="text-success"><i className="fa fa-star"></i> <i className="fa fa-star"></i> <i className="fa fa-star"></i> <i className="fa fa-star"></i> </span> </p>
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                                    <ReviewList code={product_id} />
 
                                 </Col>
                             </Row>
@@ -165,7 +186,7 @@ class ProductDetails extends Component {
                         </Col>
                     </Row>
                 </Container>
-
+                <SuggestedProduct subcategory={subcategory}/>
             </Fragment>
         )
     }
