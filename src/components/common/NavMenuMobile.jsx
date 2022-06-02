@@ -4,7 +4,8 @@ import Logo from '../../assets/images/larashop.png';
 import { Link } from "react-router-dom";
 import MegaMenuMobile from '../home/MegaMenuMoblie';
 
-export class NavMenuMobile extends Component {
+class NavMenuMobile extends Component {
+
   constructor() {
     super();
     this.state = {
@@ -34,10 +35,14 @@ export class NavMenuMobile extends Component {
       this.setState({ SideNavState: "sideNavOpen", ContentOverState: "ContentOverlayOpen" })
     }
   }
+
+
   render() {
     return (
       <Fragment>
         <div className="TopSectionDown">
+
+
           <Container fluid={"true"} className="fixed-top shadow-sm p-2 mb-0 bg-white">
             <Row>
               <Col lg={4} md={4} sm={12} xs={12}>
@@ -52,8 +57,9 @@ export class NavMenuMobile extends Component {
             </Row>
 
           </Container>
+
           <div className={this.state.SideNavState}>
-              <MegaMenuMobile/>
+            <MegaMenuMobile />
           </div>
 
           <div onClick={this.ContentOverlayClickHandler} className={this.state.ContentOverState}>
